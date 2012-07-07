@@ -76,6 +76,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     builder (3.0.0)
     coffee-script (2.2.0)
       coffee-script-source
@@ -142,6 +143,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_deprecated_finders!
+  bcrypt-ruby
   coffee-rails (~> 4.0.0.beta)!
   jquery-rails
   rails!

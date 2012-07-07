@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+%w(taka tetsu nya).each do |name|
+  user = User.new
+  user.name = name
+  user.password = "password"
+  user.save!
+end

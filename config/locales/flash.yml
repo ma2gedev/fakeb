@@ -1,0 +1,9 @@
+ja:
+  flash:
+    sessions:
+      create:
+        notice: ログインしました。
+        alert: ログイン名またはパスワードが正しくありません。
+      destroy:
+        notice: ログアウトしました。
+
