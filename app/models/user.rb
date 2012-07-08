@@ -1,8 +1,14 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :password_digest, :auto_login_token
+  attr_accessible :name, :password_digest, :auto_login_token, :password, :password_confirmation
   attr_accessor :password
+
+  validates :name, :presence => true, :length => { :maximum => 20 },
+    :uniqueness => { :case_sensitive => false }
+  validates :password, :presence => true, :length => { :minimum => 4, :allow_blank => true },
+    :confirmation => true
+  validates :password_confirmation, :presence => true
 
   before_save do
     self.password_digest = BCrypt::Password.create(password)

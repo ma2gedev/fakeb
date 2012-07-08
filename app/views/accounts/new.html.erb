@@ -1,0 +1,20 @@
+<%= form_for @user, :url => :account do |f| %>
+<%= render "shared/error_messages", :object => f.object %>
+<ul>
+  <li>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </li>
+  <li>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </li>
+  <li>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </li>
+  <li class="buttons">
+    <%= f.submit "登録" %>
+  </li>
+</ul>
+<% end %>

@@ -10,5 +10,6 @@
   user = User.new
   user.name = name
   user.password = "password"
+  user.password_confirmation = "password"
   user.save!
 end
