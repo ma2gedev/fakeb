@@ -1,0 +1,14 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ブックマーク</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @entries.each do |entry| %>
+    <tr>
+      <td><%= link_to entry.title, entry.url %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

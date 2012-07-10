@@ -1,4 +1,5 @@
 Fakeb::Application.routes.draw do
+  root to: 'top#index'
   resource :session, :only => [ :new, :create, :destroy ]
   resource :account, :only => [ :new, :create, :destroy ]
 
