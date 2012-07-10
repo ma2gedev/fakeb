@@ -42,4 +42,4 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.0'
 end
 gem 'bcrypt-ruby'
-
+gem 'twitter-bootstrap-rails'
