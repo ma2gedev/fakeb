@@ -1,6 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+  has_many :bookmarks
   attr_accessible :name, :password_digest, :auto_login_token, :password, :password_confirmation
   attr_accessor :password
 

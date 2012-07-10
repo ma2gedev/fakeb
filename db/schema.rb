@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701033428) do
+ActiveRecord::Schema.define(:version => 20120710152138) do
+
+  create_table "bookmarks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "entry_id"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "bookmarks", ["entry_id"], :name => "index_bookmarks_on_entry_id"
+  add_index "bookmarks", ["user_id"], :name => "index_bookmarks_on_user_id"
+
+  create_table "entries", :force => true do |t|
+    t.text     "url",        :null => false
+    t.text     "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name",             :null => false

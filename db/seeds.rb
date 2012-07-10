@@ -13,3 +13,19 @@
   user.password_confirmation = "password"
   user.save!
 end
+
+%w(http://www.yahoo.co.jp/0 http://www.yahoo.co.jp/1 http://www.yahoo.co.jp/2).each do |url|
+  entry = Entry.new
+  entry.url = url
+  entry.title = url
+  entry.save!
+end
+
+%w(comment1 comment2 comment3).each_with_index do |comment, i|
+  bookmark = Bookmark.new
+  bookmark.comment = comment
+  bookmark.user = User.find(1)
+  bookmark.entry = Entry.find(i + 1)
+  bookmark.save!
+end
+
