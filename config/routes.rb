@@ -2,6 +2,9 @@ Fakeb::Application.routes.draw do
   root to: 'top#index'
   resource :session, :only => [ :new, :create, :destroy ]
   resource :account, :only => [ :new, :create, :destroy ]
+  scope ":name" do
+    resource :bookmarks, :only => [ :show ]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

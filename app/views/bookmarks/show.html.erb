@@ -1,0 +1,15 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= @user_name %>のブックマーク</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookmarks.each do |bookmark| %>
+    <tr>
+      <td><%= link_to bookmark.entry.title, bookmark.entry.url %></td>
+      <td><%= bookmark.comment %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
