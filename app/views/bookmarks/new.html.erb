@@ -1,0 +1,16 @@
+<%= form_for @bookmark, :url => { :action => :create, :name => current_user.name } do |f| %>
+<%= render "shared/error_messages", :object => f.object %>
+<ul>
+  <li>
+    <label for="entry_url">URL</label>
+    <%= url_field_tag "entry[url]", "", :id => "entry_url" %>
+  </li>
+  <li>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </li>
+  <li class="buttons">
+    <%= f.submit(["登録"], :class => 'btn btn-primary') %>
+  </li>
+</ul>
+<% end %>

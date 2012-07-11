@@ -3,7 +3,7 @@ Fakeb::Application.routes.draw do
   resource :session, :only => [ :new, :create, :destroy ]
   resource :account, :only => [ :new, :create, :destroy ]
   scope ":name" do
-    resource :bookmarks, :only => [ :show ]
+    resource :bookmarks, :only => [ :new, :create, :show ]
   end
 
   # The priority is based upon order of creation:
