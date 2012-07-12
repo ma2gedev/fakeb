@@ -32,7 +32,7 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav pull-right">
             <% if current_user %>
-              <li><%= link_to "マイブックマーク", :controller => :bookmarks, :action => :show, :name => current_user.name  %></li>
+              <li><%= link_to "マイブックマーク", :controller => :bookmarks, :action => :index, :name => current_user.name  %></li>
               <li><%= link_to "追加", :controller => :bookmarks, :action => :new, :name => current_user.name  %></li>
               <li><%= link_to "ログアウト", :session, :method => :delete, :confirm => "ログアウトしますか？" %></li>
             <% else %>

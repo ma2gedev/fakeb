@@ -3,7 +3,7 @@ Fakeb::Application.routes.draw do
   resource :session, :only => [ :new, :create, :destroy ]
   resource :account, :only => [ :new, :create, :destroy ]
   scope ":name" do
-    resource :bookmarks, :only => [ :new, :create, :show ]
+    resources :bookmarks, :only => [ :index, :new, :create ]
   end
   resources :entries, :only => [ :show ]
 

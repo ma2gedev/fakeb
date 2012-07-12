@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   require 'timeout'
   require 'nokogiri'
 
-  def show
+  def index
     user = User.find_by_name(params[:name])
     # @task must be consider when user == nil
     @user_name = user.name
@@ -33,7 +33,7 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.entry = entry
     if @bookmark.save
-      redirect_to :action => :show, :name => current_user.name
+      redirect_to :action => :index, :name => current_user.name
     else
       render :new
     end
