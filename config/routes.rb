@@ -5,6 +5,7 @@ Fakeb::Application.routes.draw do
   scope ":name" do
     resource :bookmarks, :only => [ :new, :create, :show ]
   end
+  resources :entries, :only => [ :show ]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

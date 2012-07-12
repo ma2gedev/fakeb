@@ -1,0 +1,11 @@
+<div class="page-header">
+  <h1><%= link_to @entry.title, @entry.url, :target => "_blank" %></h1>
+</div> 
+<% @bookmarks.each do |bookmark| %>
+<div class="row-fluid">
+  <div class="span9">
+    <h3><%= link_to bookmark.user.name, :controller => :bookmarks, :action => :show, :name => bookmark.user.name %></h3>
+    <p><%= bookmark.comment %></p>
+  </div>
+</div>
+<% end %>
