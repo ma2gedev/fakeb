@@ -1,4 +1,8 @@
 class BookmarksController < ApplicationController
+  require 'open-uri'
+  require 'timeout'
+  require 'nokogiri'
+
   def show
     user = User.find_by_name(params[:name])
     # @task must be consider when user == nil
@@ -14,9 +18,10 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(params[:bookmark])
 
     url = params[:entry][:url]
-    entry = Entry.find_or_create_by_url(url)
-    entry.title = url if entry.title.blank?
-    # @task access to url and get html title
+    entry = Entry.find_by_url(url)
+    entry ||= Entry.new
+    entry.url = url
+    entry.title = fetch_page_data(url) if entry.title.blank?
 
     exist = Bookmark.find_by_entry_id_and_user_id(entry.id, current_user.id)
     if exist
@@ -32,5 +37,24 @@ class BookmarksController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+
+  def fetch_page_data(url)
+    html = nil
+    begin
+      timeout(10) do
+        html = Nokogiri::HTML(open(url))
+      end
+    rescue => exception
+      # puts exception
+      return url
+    end
+
+    title = html.css('title').first
+    return url if title == nil
+
+    title.text
   end
 end

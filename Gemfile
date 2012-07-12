@@ -43,3 +43,4 @@ group :test, :development do
 end
 gem 'bcrypt-ruby'
 gem 'twitter-bootstrap-rails'
+gem 'nokogiri'
