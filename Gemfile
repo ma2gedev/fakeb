@@ -6,7 +6,14 @@ source 'https://rubygems.org'
 gem 'rails', github: 'rails/rails'
 gem 'active_record_deprecated_finders', github: 'rails/active_record_deprecated_finders'
 
-gem 'sqlite3'
+# for heroku
+ruby "1.9.3"
+group :production do
+  gem 'pg'
+end
+group :test, :development do
+  gem 'sqlite3'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
