@@ -1,5 +1,5 @@
 class TopController < ApplicationController
   def index
-    @entries = Entry.all
+    @entries = Entry.order("updated_at DESC")
   end
 end

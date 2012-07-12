@@ -6,4 +6,7 @@ ja:
         alert: ログイン名またはパスワードが正しくありません。
       destroy:
         notice: ログアウトしました。
+    accounts:
+      create:
+        notice: 登録ありがとうございます。右上の追加よりブックマークを追加できます。
 

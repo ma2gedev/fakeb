@@ -1,11 +1,15 @@
 <div class="hero-unit">
-  <h2>ブックマーク</h2>
-  <p>はてぶを真似て作ったサイト</p>
+  <h2>ブックマークしよう</h2>
+  <p>Fakebはよくあるソーシャルブックマークサービスです</p>
+</div>
+<div class="page-header">
+  <h3>新着ブックマーク</h3>
 </div>
 <% @entries.each do |entry| %>
-<div class="row-fluid show-grid">
-  <div class="span9">
+<div class="row-fluid">
+  <div class="span12">
     <h3><%= link_to entry.title, entry.url, :target => "_blank" %></h3>
+    <p><%= link_to (entry.bookmarks.count.to_s + " users"), entry, :class => "btn btn-info btn-mini" %></p>
   </div>
 </div>
 <% end %>

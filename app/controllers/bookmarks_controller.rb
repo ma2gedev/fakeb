@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
     user = User.find_by_name(params[:name])
     # @task must be consider when user == nil
     @user_name = user.name
-    @bookmarks = user.bookmarks
+    @bookmarks = user.bookmarks.sort { |a, b| b.created_at <=> a.created_at }
   end
   
   def new
