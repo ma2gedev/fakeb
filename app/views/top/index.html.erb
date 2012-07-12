@@ -1,14 +1,11 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>ブックマーク</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @entries.each do |entry| %>
-    <tr>
-      <td><%= link_to entry.title, entry.url %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="hero-unit">
+  <h2>ブックマーク</h2>
+  <p>はてぶを真似て作ったサイト</p>
+</div>
+<% @entries.each do |entry| %>
+<div class="row-fluid show-grid">
+  <div class="span9">
+    <h3><%= link_to entry.title, entry.url, :target => "_blank" %></h3>
+  </div>
+</div>
+<% end %>

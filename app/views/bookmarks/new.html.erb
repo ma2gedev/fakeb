@@ -1,3 +1,6 @@
+<div class="page-header">
+  <h1>ブックマークを追加してください</h1>
+</div> 
 <%= form_for @bookmark, :url => { :action => :create, :name => current_user.name } do |f| %>
 <%= render "shared/error_messages", :object => f.object %>
 <ul>
@@ -10,7 +13,7 @@
     <%= f.text_area :comment %>
   </li>
   <li class="buttons">
-    <%= f.submit(["登録"], :class => 'btn btn-primary') %>
+    <%= f.submit(["追加"], :class => 'btn btn-primary') %>
   </li>
 </ul>
 <% end %>

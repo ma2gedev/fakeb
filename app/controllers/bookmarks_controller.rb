@@ -28,7 +28,6 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.entry = entry
     if @bookmark.save
-      # @task add bookmark flash message
       redirect_to :action => :show, :name => current_user.name
     else
       render :new

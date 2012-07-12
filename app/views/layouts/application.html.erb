@@ -30,13 +30,10 @@
           </a>
           <a class="brand" href="/">Fakeb</a>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
             <ul class="nav pull-right">
             <% if current_user %>
+              <li><%= link_to "マイブックマーク", :controller => :bookmarks, :action => :show, :name => current_user.name  %></li>
+              <li><%= link_to "追加", :controller => :bookmarks, :action => :new, :name => current_user.name  %></li>
               <li><%= link_to "ログアウト", :session, :method => :delete, :confirm => "ログアウトしますか？" %></li>
             <% else %>
               <li><%= link_to "ログイン", :new_session %></li>
@@ -50,30 +47,25 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <!-- @task consider position of error message -->
+        <div class="span12">
           <div id="flash">
             <% if flash[:notice].present? %>
-              <p class="flash_notice"><%= flash[:notice] %></p>
+              <div class="alert alert-info">
+                <p class="flash_notice"><%= flash[:notice] %></p>
+              </div>
             <% end %>
             <% if flash[:alert].present? %>
-              <p class="flash_alert"><%= flash[:alert] %></p>
+              <div class="alert alert-error">
+                <p class="flash_alert"><%= flash[:alert] %></p>
+              </div>
             <% end %>
           </div>
 
           <%= yield %>
         </div>
       </div><!--/row-->
+
+      <hr>
 
       <footer>
         <p>Copyright&copy; 2012 <a target="_blank" href="https://twitter.com/ma2ge">ma2ge</a> All Rights Reserved.</p>
