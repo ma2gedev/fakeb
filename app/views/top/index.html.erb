@@ -3,13 +3,13 @@
   <p>Fakebはよくあるソーシャルブックマークサービスです</p>
 </div>
 <div class="page-header">
-  <h3>新着ブックマーク</h3>
+  <h3>人気のブックマーク</h3>
 </div>
 <% @entries.each do |entry| %>
 <div class="row-fluid">
   <div class="span12">
     <h3><%= link_to entry.title, entry.url, :target => "_blank" %></h3>
-    <p><%= link_to (entry.bookmarks.count.to_s + " users"), entry, :class => "btn btn-info btn-mini" %></p>
+    <p><%= link_to (entry.count.to_s + " users"), entry, :class => "btn btn-info btn-mini" %></p>
   </div>
 </div>
 <% end %>
