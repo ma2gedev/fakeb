@@ -1,7 +1,9 @@
+require 'open-uri'
+require 'timeout'
+require 'nokogiri'
+
 class BookmarksController < ApplicationController
-  require 'open-uri'
-  require 'timeout'
-  require 'nokogiri'
+  before_filter :authenticate_user, :except => ["index"]
 
   def index
     user = User.find_by_name(params[:name])
